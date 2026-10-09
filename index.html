@@ -1,0 +1,1053 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Datos, gobernanza y buenas prácticas con Copilot | FNA</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2056%2052%22%3E%3Cpath%20fill%3D%22%2314101f%22%20fill-rule%3D%22evenodd%22%20d%3D%22M34.56%2C7.12%20L34.06%2C7.17%20L33.56%2C7.57%20L33.28%2C8.19%20L33.28%2C8.81%20L34.18%2C10.94%20L35.12%2C12.38%20L35.93%2C13.44%20L36.12%2C14.31%20L36.08%2C15.19%20L35.87%2C15.69%20L35.50%2C16.07%20L34.62%2C16.67%20L33.69%2C16.99%20L32.56%2C17.12%20L31.81%2C17.12%20L30.12%2C16.97%20L27.56%2C16.54%20L26.50%2C16.50%20L24.94%2C16.75%20L23.75%2C17.10%20L22.00%2C18.12%20L21.25%2C18.73%20L20.09%2C19.94%20L18.61%2C21.79%20L17.06%2C23.38%20L15.69%2C24.60%20L15.19%2C24.88%20L12.81%2C25.57%20L12.12%2C25.62%20L11.56%2C25.56%20L9.19%2C24.89%20L8.62%2C24.59%20L7.94%2C24.07%20L6.56%2C22.82%20L6.06%2C22.53%20L5.69%2C22.46%20L5.45%2C22.54%20L5.22%2C22.75%20L5.10%2C23.06%20L5.12%2C23.56%20L5.38%2C24.06%20L5.94%2C24.69%20L7.06%2C25.73%20L8.50%2C26.78%20L10.06%2C27.63%20L10.62%2C27.85%20L13.06%2C28.12%20L14.50%2C28.12%20L16.81%2C27.87%20L17.31%2C27.71%20L18.25%2C27.12%20L20.00%2C26.39%20L20.94%2C26.19%20L21.50%2C26.23%20L22.06%2C26.43%20L22.62%2C26.81%20L23.30%2C27.40%20L23.67%2C27.88%20L23.91%2C28.44%20L23.98%2C29.06%20L23.85%2C29.75%20L23.63%2C30.25%20L22.75%2C31.56%20L21.10%2C33.56%20L20.91%2C34.25%20L20.93%2C35.12%20L21.19%2C35.81%20L21.91%2C36.81%20L24.94%2C40.38%20L25.73%2C41.81%20L26.93%2C45.38%20L27.14%2C45.63%20L27.44%2C45.77%20L27.75%2C45.74%20L28.10%2C45.49%20L28.35%2C45.12%20L28.70%2C44.12%20L28.81%2C43.00%20L28.75%2C41.56%20L28.58%2C40.94%20L27.89%2C39.19%20L27.23%2C38.25%20L26.76%2C37.44%20L25.96%2C36.44%20L25.43%2C35.31%20L25.35%2C34.62%20L25.52%2C34.06%20L25.91%2C33.31%20L26.84%2C32.25%20L29.75%2C28.50%20L30.19%2C27.62%20L30.93%2C26.44%20L31.47%2C24.94%20L31.61%2C23.88%20L31.39%2C22.88%20L30.87%2C21.75%20L30.31%2C21.12%20L29.19%2C20.48%20L28.56%2C20.20%20L27.94%2C20.12%20L27.19%2C20.31%20L26.19%2C20.98%20L25.71%2C21.50%20L25.46%2C22.06%20L25.39%2C22.50%20L25.44%2C23.00%20L25.99%2C24.25%20L27.77%2C26.56%20L28.15%2C27.31%20L28.26%2C27.88%20L28.15%2C28.44%20L27.88%2C29.00%20L26.72%2C30.56%20L25.26%2C32.25%20L24.39%2C33.44%20L24.16%2C34.00%20L24.06%2C34.88%20L24.20%2C35.75%20L25.68%2C38.31%20L25.77%2C38.62%20L25.64%2C38.85%20L25.36%2C38.76%20L24.89%2C38.18%20L24.22%2C37.71%20L23.71%2C37.02%20L23.16%2C36.49%20L22.36%2C35.38%20L22.14%2C34.75%20L22.17%2C34.38%20L22.33%2C34.00%20L23.71%2C32.25%20L24.71%2C30.62%20L24.87%2C30.25%20L25.00%2C29.31%20L24.98%2C28.00%20L24.80%2C27.38%20L24.42%2C26.81%20L23.68%2C25.98%20L22.62%2C25.25%20L22.06%2C25.07%20L21.31%2C25.00%20L20.06%2C25.05%20L19.56%2C25.14%20L17.75%2C25.99%20L16.88%2C26.21%20L16.19%2C26.50%20L16.06%2C26.49%20L16.02%2C26.39%20L16.47%2C26.01%20L16.90%2C25.26%20L17.73%2C24.55%20L18.75%2C23.50%20L21.50%2C20.38%20L22.69%2C19.33%20L24.69%2C18.13%20L25.31%2C17.95%20L26.00%2C17.88%20L28.06%2C17.88%20L29.44%2C18.01%20L31.31%2C18.50%20L32.19%2C18.62%20L33.00%2C18.49%20L34.12%2C18.10%20L35.12%2C17.86%20L35.69%2C17.56%20L36.81%2C16.50%20L37.37%2C15.56%20L37.61%2C14.81%20L37.61%2C14.19%20L37.43%2C13.56%20L36.88%2C12.50%20L36.26%2C11.69%20L36.12%2C11.38%20L36.11%2C11.13%20L36.20%2C10.95%20L36.56%2C10.87%20L38.31%2C11.86%20L39.94%2C12.25%20L41.00%2C12.74%20L42.62%2C13.32%20L43.31%2C13.77%20L43.92%2C14.31%20L44.28%2C14.81%20L44.39%2C15.31%20L44.22%2C15.66%20L43.75%2C15.97%20L43.19%2C16.13%20L41.88%2C16.22%20L41.19%2C16.38%20L40.44%2C16.72%20L39.50%2C17.35%20L39.12%2C17.75%20L38.20%2C19.19%20L37.69%2C20.50%20L36.83%2C21.88%20L35.62%2C23.10%20L34.27%2C24.16%20L33.33%2C25.31%20L33.16%2C25.75%20L33.20%2C26.19%20L33.96%2C27.25%20L34.16%2C27.94%20L34.08%2C28.50%20L33.55%2C29.31%20L33.50%2C29.67%20L33.71%2C29.91%20L34.00%2C29.97%20L34.38%2C29.88%20L34.71%2C29.65%20L35.49%2C28.56%20L35.64%2C28.06%20L35.54%2C27.62%20L34.95%2C26.75%20L34.75%2C26.31%20L34.65%2C25.88%20L34.73%2C25.50%20L34.95%2C25.21%20L36.94%2C23.44%20L37.72%2C22.56%20L38.71%2C21.25%20L39.21%2C19.75%20L40.18%2C18.38%20L40.44%2C18.12%20L40.81%2C17.93%20L41.75%2C17.70%20L43.25%2C17.48%20L44.75%2C16.94%20L45.25%2C16.59%20L45.67%2C16.12%20L45.88%2C15.69%20L45.94%2C15.12%20L45.77%2C14.44%20L45.23%2C13.69%20L44.74%2C13.17%20L43.56%2C12.27%20L43.19%2C12.05%20L42.06%2C11.66%20L41.00%2C11.13%20L39.38%2C10.77%20L38.62%2C10.50%20L37.50%2C9.70%20L35.12%2C7.41Z%20M26.22%2C39.28%20L26.47%2C39.33%20L26.63%2C39.57%20L26.64%2C39.87%20L26.48%2C40.04%20L26.25%2C39.97%20L26.08%2C39.69%20L26.09%2C39.40Z%20M27.56%2C21.66%20L28.06%2C21.57%20L28.75%2C21.74%20L29.50%2C22.10%20L29.77%2C22.33%20L29.95%2C22.62%20L30.16%2C23.56%20L30.16%2C25.06%20L29.96%2C25.81%20L29.62%2C26.21%20L29.25%2C26.21%20L28.81%2C25.88%20L27.31%2C24.12%20L26.95%2C23.56%20L26.81%2C22.88%20L26.88%2C22.44%20L27.17%2C21.96Z%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --bg:#ffffff; --bg-1:#fafafa; --surface:rgba(0,0,0,.022); --surface-h:rgba(0,0,0,.045); --surface-2:rgba(0,0,0,.014);
+  --line:rgba(0,0,0,.09); --line-h:rgba(0,0,0,.15);
+  --ink:#111114; --ink75:#43444c; --ink60:#5f6069; --ink55:#6b6c75; --ink45:#85868f; --ink40:#8f9099; --ink20:#c4c5cc;
+  --rol:#2563eb; --ctx:#9333ea; --ins:#db2777; --ok:#16a34a; --warn:#d97706;
+  --grad:linear-gradient(135deg,#2563eb,#9333ea,#db2777);
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5}
+button{font-family:inherit;cursor:pointer}
+
+/* NAV */
+.nav{position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:50;width:min(1230px,95vw);
+  display:flex;align-items:center;gap:18px;padding:8px 14px;border-radius:14px;
+  background:rgba(255,255,255,.74);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border:1px solid rgba(0,0,0,.08);box-shadow:0 6px 24px rgba(20,10,40,.08)}
+.brand{display:flex;align-items:center;gap:8px;white-space:nowrap;font-size:13px}
+.brand svg{width:31px;height:29px;color:#14101f}
+.brand .tag{font-family:var(--mono);font-size:10.5px;color:var(--ink45)}
+.brand b{font-weight:600}
+.links{display:flex;gap:2px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.links::-webkit-scrollbar{display:none}
+.links button{background:none;border:0;border-radius:8px;padding:6px 10px;font-size:12.5px;color:var(--ink55);white-space:nowrap;transition:background .15s,color .15s}
+.links button i{font-style:normal;font-family:var(--mono);font-size:9.5px;color:var(--ink40);margin-right:4px}
+.links button:hover{background:var(--surface)}
+.links button.on{background:rgba(0,0,0,.06);color:var(--ink);font-weight:600}
+
+/* HERO */
+.hero{position:relative;height:590px;overflow:hidden;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(180deg,#2a2340 0%,#4b3a66 32%,#8c6a90 58%,#d9bfd3 80%,#fff 100%)}
+.hero .glow{position:absolute;inset:-40px;filter:blur(34px);
+  background:
+   radial-gradient(420px 260px at 16% 58%,rgba(251,146,60,.55),transparent 70%),
+   radial-gradient(380px 300px at 86% 42%,rgba(219,39,119,.45),transparent 70%),
+   radial-gradient(520px 300px at 50% 72%,rgba(147,51,234,.42),transparent 70%),
+   radial-gradient(300px 200px at 70% 20%,rgba(37,99,235,.35),transparent 70%)}
+.hero .city{position:absolute;left:0;right:0;bottom:0;height:62%;filter:blur(5px);opacity:.85}
+.hero .city span{position:absolute;bottom:0;background:linear-gradient(180deg,rgba(40,28,58,.78),rgba(60,40,70,.5))}
+.hero .city em{position:absolute;width:5px;height:7px;border-radius:2px;background:rgba(255,214,140,.9)}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:140px;background:linear-gradient(180deg,transparent,#fff)}
+.hero-card{position:relative;z-index:2;width:min(860px,92vw);margin-top:36px;padding:38px 44px 34px;text-align:center;border-radius:22px;
+  background:rgba(255,255,255,.55);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
+  border:1px solid rgba(255,255,255,.6);box-shadow:0 30px 60px rgba(30,15,50,.22)}
+.eyebrow{font-size:11.5px;letter-spacing:.17em;text-transform:uppercase;color:var(--ink60)}
+.hero-card h1{font-size:clamp(30px,4.8vw,48px);font-weight:600;letter-spacing:-.03em;line-height:1.08;margin-top:14px}
+.hero-card h1 span{display:block;color:var(--ink55);font-weight:500;font-size:.78em;margin-top:4px}
+.hero-card p{margin:18px auto 0;max-width:520px;color:var(--ink60);font-size:15.5px;line-height:1.65}
+
+/* LAYOUT */
+.wrap{max-width:1150px;margin:0 auto;padding:0 40px}
+.stage{padding:56px 0 24px;scroll-margin-top:70px}
+.panel{display:none;animation:fade .35s ease}
+.panel.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.sec-eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink55)}
+h2{font-size:28px;font-weight:600;letter-spacing:-.02em;margin-top:8px}
+.lead{margin-top:10px;max-width:660px;color:var(--ink60);font-size:15px;line-height:1.65}
+.sub{font-family:var(--mono);font-size:11.5px;color:var(--ink55);margin:30px 0 12px}
+.grid{display:grid;gap:16px;margin-top:26px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+
+/* CARDS */
+.card{position:relative;border:1px solid var(--line);border-radius:12px;padding:18px 18px 16px;background:#fff}
+.card.top::before{content:"";position:absolute;left:-1px;right:-1px;top:-1px;height:2.5px;border-radius:12px 12px 0 0;background:var(--c,var(--grad))}
+.card .lab{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;color:var(--c,var(--ink55));margin-bottom:10px}
+.card h3{font-size:15px;font-weight:600;letter-spacing:-.01em}
+.card p{font-size:13px;color:var(--ink60);margin-top:7px;line-height:1.6}
+.card .ex{margin-top:11px;padding:9px 12px;background:#f7f7f8;border-left:3px solid var(--c,var(--ink20));font-family:var(--mono);font-size:11.5px;line-height:1.55;color:var(--ink75)}
+.card .miss{margin-top:11px;font-size:12px;color:var(--ink55)}
+.card .miss b{color:var(--ink75)}
+.rol{--c:var(--rol)} .ctx{--c:var(--ctx)} .ins{--c:var(--ins)}
+.card ul{list-style:none;margin-top:10px;display:grid;gap:7px}
+.card li{font-size:12.8px;color:var(--ink60);line-height:1.5;padding-left:14px;position:relative}
+.card li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--c,var(--ink20))}
+.card li b{color:var(--ink);font-weight:600}
+.note{margin-top:22px;padding:12px 16px;border:1px dashed var(--line-h);border-radius:10px;font-size:12.8px;color:var(--ink60);background:var(--surface-2)}
+.note b{color:var(--ink75)}
+
+/* PANEL (header box) */
+.box{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;margin-top:20px}
+.box>.hd{padding:12px 16px;background:var(--bg-1);border-bottom:1px solid var(--line);font-size:13px;font-weight:600}
+.box>.bd{padding:6px 0}
+.chk{display:flex;gap:10px;align-items:flex-start;padding:9px 16px;font-size:13.5px;color:var(--ink75);cursor:pointer}
+.chk input{margin-top:3px;accent-color:var(--ink)}
+.chk:hover{background:var(--surface-2)}
+.verdict{padding:12px 16px;border-top:1px solid var(--line);background:var(--bg-1);font-size:13px;color:var(--ink75)}
+.verdict b{color:var(--ink)}
+
+/* TABS */
+.tabs{display:flex;flex-wrap:wrap;gap:6px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.tabs button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 12px;font-size:12.5px;color:var(--ink60)}
+.tabs button:hover{background:var(--surface)}
+.tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.code{padding:16px 18px;font-family:var(--mono);font-size:12.3px;line-height:1.62;color:var(--ink75);white-space:pre-wrap;word-break:break-word}
+.code .k{display:block;font-weight:500;margin-top:12px}
+.code .k:first-child{margin-top:0}
+.code .k.r{color:var(--rol)} .code .k.c{color:var(--ctx)} .code .k.i{color:var(--ins)}
+.code .m{color:var(--ink45)}
+.code-note{padding:0 18px 12px;font-size:12.3px;color:var(--ink55)}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 16px;border-top:1px solid var(--line);background:var(--bg-1);font-size:12px;color:var(--ink55)}
+.btn{border:1px solid var(--line-h);background:#fff;border-radius:8px;padding:6px 14px;font-size:12.5px;color:var(--ink75)}
+.btn:hover{background:var(--surface)}
+.btn.ok{background:var(--ok);border-color:var(--ok);color:#fff}
+
+/* FLOW */
+.flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:12px 10px}
+.node{flex:1 1 125px;min-width:125px;border:1px solid var(--line);border-radius:10px;background:var(--bg-1);padding:13px 14px}
+.node .ic{font-size:17px;line-height:1}
+.node b{display:block;margin-top:9px;font-size:13px;font-weight:600}
+.node span{display:block;margin-top:3px;font-size:12px;color:var(--ink60);line-height:1.5}
+.node.ag{background:rgba(219,39,119,.04);border-color:rgba(219,39,119,.4)}
+.node.de{background:rgba(147,51,234,.05);border-color:rgba(147,51,234,.4)}
+.node.hu{background:rgba(217,119,6,.05);border-color:rgba(217,119,6,.45)}
+.node small{display:inline-block;margin-top:8px;font-family:var(--mono);font-size:10px;color:var(--warn)}
+.arr{align-self:center;color:var(--ink40);font-size:16px}
+
+/* LEGEND KEY */
+.keys{display:flex;flex-wrap:wrap;gap:14px;margin-top:14px;font-size:12px;color:var(--ink60)}
+.keys i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;border:1px solid var(--line-h)}
+
+/* TABLE */
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:11px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--bg-1);font-weight:600;font-size:12.5px}
+td:first-child{font-weight:600;white-space:nowrap}
+td{color:var(--ink60)}
+tr:last-child td{border-bottom:0}
+th.c1{color:var(--rol)} th.c2{color:var(--ins)}
+
+/* CAPTURAS DE INTERFAZ */
+.mock-tag{display:inline-block;margin-top:26px;font-family:var(--mono);font-size:10.5px;color:var(--ink55);border:1px solid var(--line-h);border-radius:20px;padding:3px 10px}
+.tabs.vt{border-bottom:0;padding:0;margin-top:24px}
+.uiview[hidden]{display:none}
+.shot{position:relative;margin-top:16px;border-radius:14px;border:1px solid var(--line-h);box-shadow:0 14px 40px rgba(20,10,40,.08)}
+.shot img{display:block;width:100%;height:auto;border-radius:13px}
+.mk{position:absolute;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;background:var(--grad);color:#fff;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px rgba(255,255,255,.9),0 3px 10px rgba(80,30,120,.4);transition:transform .15s;z-index:3}
+.mk.hl{transform:scale(1.4)}
+.legend{display:grid;gap:4px}
+.legend.lg{grid-template-columns:repeat(4,1fr);gap:6px 14px;margin-top:16px}
+.legend div{display:flex;gap:11px;padding:9px 11px;border-radius:9px;cursor:default;transition:background .15s}
+.legend div:hover{background:var(--surface)}
+.legend b{display:block;font-size:13.5px;font-weight:600}
+.legend span{display:block;font-size:12.5px;color:var(--ink60);line-height:1.5}
+.legend i{flex:none;width:20px;height:20px;border-radius:50%;background:var(--grad);color:#fff;font-style:normal;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:26px;margin-top:26px;align-items:start}
+
+/* COWORK MOCK */
+.cw{display:grid;grid-template-columns:150px 1fr;border:1px solid var(--line-h);border-radius:14px;overflow:hidden;box-shadow:0 14px 40px rgba(20,10,40,.07);background:#fff}
+.cw .side{background:#f6f6f8;border-right:1px solid var(--line);padding:14px 10px;display:grid;gap:4px;align-content:start;font-size:12px;color:var(--ink60)}
+.cw .side div{padding:7px 9px;border-radius:7px}
+.cw .side div.act{background:#fff;color:var(--ink);font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.cw .body{padding:16px 18px}
+.cw h4{font-size:14px;font-weight:600}
+.bar{height:6px;border-radius:6px;background:var(--surface-h);margin:10px 0 4px;overflow:hidden}
+.bar i{display:block;height:100%;width:72%;border-radius:6px;background:var(--grad);transition:width .6s}
+.pct{font-size:11px;font-family:var(--mono);color:var(--ink55)}
+.steps{list-style:none;display:grid;gap:7px;margin-top:12px;font-size:12.6px;color:var(--ink75)}
+.steps li::before{content:"✓";color:var(--ok);font-weight:700;margin-right:8px}
+.steps li.wait::before{content:"●";color:var(--warn)}
+.appr{margin-top:14px;border:1px solid rgba(217,119,6,.45);background:rgba(217,119,6,.05);border-radius:10px;padding:12px 14px;font-size:12.6px}
+.appr b{display:block;margin-bottom:6px;color:var(--warn)}
+.appr label{display:flex;gap:8px;margin:4px 0;color:var(--ink75);cursor:pointer}
+.appr .row{display:flex;gap:8px;margin-top:10px;align-items:center}
+.appr .st{font-size:12px;color:var(--ok);font-weight:600}
+.files{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;font-size:12px}
+.files span{border:1px solid var(--line);border-radius:8px;padding:5px 10px;color:var(--ink75);background:#fff}
+.chipsk{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;font-size:11px}
+.chipsk span{background:var(--surface-h);border-radius:20px;padding:3px 10px;color:var(--ink60)}
+
+/* FOOTER */
+footer{margin-top:50px;border-top:1px solid var(--line);padding:22px 0 46px}
+footer .wrap{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+footer svg{width:46px;height:43px;color:#14101f;opacity:.9}
+footer p{font-size:12px;color:var(--ink55);line-height:1.7}
+footer p b{color:var(--ink75);font-weight:600}
+footer p code{font-family:var(--mono);font-size:11px;color:var(--ink45)}
+.pager{display:flex;justify-content:space-between;margin-top:34px}
+
+@media (max-width:900px){
+  .g3,.g2,.g4,.split{grid-template-columns:1fr}
+  .wrap{padding:0 20px}
+  .brand b{display:none}
+  .cw{grid-template-columns:1fr}
+  .cw .side{display:none}
+  .legend.lg{grid-template-columns:1fr}
+  .mk{width:20px;height:20px;margin:-10px 0 0 -10px;font-size:10.5px}
+  footer .wrap{grid-template-columns:1fr}
+  td:first-child{white-space:normal}
+}
+
+
+/* ---------- CLASE 3 ---------- */
+:root{--verde:#16a34a;--amar:#d97706;--rojo:#dc2626}
+.tl{--c:var(--verde)} .tl.y{--c:var(--amar)} .tl.r{--c:var(--rojo)}
+.card .lab .dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--c);margin-right:6px}
+.q{font-size:26px;font-weight:600;letter-spacing:-.02em;color:var(--c,var(--ink));font-family:var(--mono);margin-bottom:6px}
+.a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--ink20);text-underline-offset:3px}
+.a:hover{text-decoration-color:var(--ink)}
+.src{margin-top:12px;font-family:var(--mono);font-size:11px;color:var(--ink45);line-height:1.7}
+.src a{color:var(--ink55)}
+.btn.dark{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn.dark:hover{background:#2b2b31}
+
+/* Gancho */
+.prompt-demo{padding:18px 20px;font-size:15px;line-height:2;color:var(--ink75)}
+.flag{border-radius:6px;padding:1px 4px;transition:background .25s,box-shadow .25s;position:relative}
+.reveal .flag{background:rgba(220,38,38,.12);box-shadow:inset 0 -2px 0 var(--rojo)}
+.flag small{display:none;font-family:var(--mono);font-size:10.5px;color:var(--rojo);margin-left:6px;white-space:nowrap}
+.reveal .flag small{display:inline}
+.out{display:none;padding:12px 16px;border-top:1px solid var(--line);background:var(--bg-1);font-size:13px;color:var(--ink75)}
+.reveal .out{display:block}
+
+/* Ejercicio 1: documento */
+.doc{padding:20px 22px;font-size:14.5px;line-height:2.25;color:var(--ink75)}
+.tok{font:inherit;color:var(--ink);background:var(--surface-2);border:1px dashed var(--line-h);border-radius:7px;padding:2px 8px;cursor:pointer;transition:background .15s,border-color .15s}
+.tok:hover{background:var(--surface-h)}
+.tok[data-s="g"]{background:rgba(22,163,74,.13);border:1px solid rgba(22,163,74,.6)}
+.tok[data-s="y"]{background:rgba(217,119,6,.13);border:1px solid rgba(217,119,6,.65)}
+.tok[data-s="r"]{background:rgba(220,38,38,.12);border:1px solid rgba(220,38,38,.6)}
+.tok.ok{box-shadow:0 0 0 2px #fff,0 0 0 4px var(--verde)}
+.tok.no{box-shadow:0 0 0 2px #fff,0 0 0 4px var(--rojo)}
+.pick{display:flex;flex-wrap:wrap;gap:16px;padding:12px 16px;border-top:1px solid var(--line);background:var(--bg-1);font-size:12.3px;color:var(--ink60);align-items:center}
+.pick i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.keylist{list-style:none;display:grid;gap:6px;margin-top:12px;font-size:12.6px;line-height:1.5}
+.res{padding:12px 16px;border-top:1px solid var(--line);font-size:13px;color:var(--ink75);display:none}
+.checked .res{display:block}
+
+/* Ejercicios con selector */
+.sel{font:inherit;font-size:12.5px;padding:6px 8px;border:1px solid var(--line-h);border-radius:8px;background:#fff;color:var(--ink75);max-width:100%}
+td.r1{white-space:normal}
+table.resp td:first-child{white-space:normal}
+table.resp td{vertical-align:top}
+.kx{display:none;margin-top:6px;font-size:12.3px;line-height:1.5}
+.checked .kx{display:block}
+.kx.ok{color:var(--verde)} .kx.no{color:var(--rojo)}
+.kx b{font-weight:600}
+.srcbox{padding:14px 18px;background:#f7f7f8;border-left:3px solid var(--ink20);font-size:13px;color:var(--ink75);line-height:1.65;margin:0}
+.srcbox b{font-family:var(--mono);font-size:11px;color:var(--ink55);font-weight:500;display:block;margin-bottom:4px}
+.stmt td:first-child{white-space:normal;width:52%}
+.stmt td:first-child b{font-family:var(--mono);color:var(--ink45);margin-right:6px;font-weight:500}
+.stmt td{color:var(--ink75)}
+
+/* Nota de trazabilidad */
+.trz{padding:14px 16px;display:grid;gap:10px}
+.trz label{display:grid;gap:4px;font-size:12px;color:var(--ink55);font-family:var(--mono)}
+.trz input,.habit input{font:inherit;font-size:13.5px;padding:8px 10px;border:1px solid var(--line-h);border-radius:8px;color:var(--ink);background:#fff;width:100%}
+.trz input:focus,.habit input:focus{outline:2px solid rgba(37,99,235,.35);border-color:var(--rol)}
+
+/* Decálogo */
+.deca{counter-reset:d}
+.deca .chk{align-items:center}
+.deca .chk::before{counter-increment:d;content:counter(d);flex:none;width:22px;height:22px;border-radius:50%;background:var(--surface-h);color:var(--ink60);font-family:var(--mono);font-size:11px;display:flex;align-items:center;justify-content:center}
+.deca .chk:has(input:checked){background:rgba(22,163,74,.05)}
+.deca .chk:has(input:checked)::before{background:var(--ok);color:#fff}
+.prog{display:flex;align-items:center;gap:10px;padding:10px 16px;border-top:1px solid var(--line);background:var(--bg-1);font-size:12.5px;color:var(--ink60)}
+.prog .bar{flex:1;margin:0}
+.prog .bar i{width:0}
+.habit{display:flex;gap:10px;padding:14px 16px;flex-wrap:wrap}
+.habit input{flex:1 1 260px;width:auto}
+.habit-out{margin:0 16px 16px;padding:14px 16px;border-radius:10px;background:var(--grad);color:#fff;font-size:14px;font-weight:500;display:none}
+.habit-out small{display:block;font-family:var(--mono);font-size:10.5px;opacity:.8;margin-bottom:4px;font-weight:400}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.cols2 h4{font-size:13px;font-weight:600;margin-bottom:8px}
+.cols2 ul{list-style:none;display:grid;gap:7px}
+.cols2 li{font-size:12.6px;color:var(--ink60);line-height:1.5;padding-left:14px;position:relative}
+.cols2 li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--ink20)}
+.closing{margin-top:34px;text-align:center;padding:36px 20px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,#fff,#f7f4fb)}
+.closing h3{font-size:22px;font-weight:600;letter-spacing:-.02em}
+.closing p{margin:10px auto 0;max-width:520px;font-size:14px;color:var(--ink60);line-height:1.65}
+
+details.faq{border-bottom:1px solid var(--line)}
+details.faq:last-child{border-bottom:0}
+details.faq summary{list-style:none;cursor:pointer;padding:13px 16px;font-size:13.5px;font-weight:600;display:flex;justify-content:space-between;gap:12px;align-items:center}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{content:"+";font-family:var(--mono);color:var(--ink45);font-weight:400}
+details.faq[open] summary::after{content:"–"}
+details.faq summary:hover{background:var(--surface-2)}
+details.faq .ans{padding:0 16px 14px;font-size:13px;color:var(--ink60);line-height:1.65}
+details.faq .ans ul{list-style:none;display:grid;gap:6px;margin-top:8px}
+details.faq .ans li{padding-left:14px;position:relative}
+details.faq .ans li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--ink20)}
+details.faq .ans b{color:var(--ink75)}
+@media (max-width:900px){
+  .cols2{grid-template-columns:1fr}
+  .stmt td:first-child{width:auto}
+  .doc{font-size:14px}
+  table.resp thead{display:none}
+  table.resp tr{display:block;padding:10px 0;border-bottom:1px solid var(--line)}
+  table.resp tr:last-child{border-bottom:0}
+  table.resp td{display:block;border:0;padding:4px 16px}
+  table.norm td:nth-child(3)::before{content:"En la clase: ";font-weight:600;color:var(--ink)}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="logo" viewBox="0 0 56 52"><path fill="currentColor" fill-rule="evenodd" d="M34.56,7.12 L34.06,7.17 L33.56,7.57 L33.28,8.19 L33.28,8.81 L34.18,10.94 L35.12,12.38 L35.93,13.44 L36.12,14.31 L36.08,15.19 L35.87,15.69 L35.50,16.07 L34.62,16.67 L33.69,16.99 L32.56,17.12 L31.81,17.12 L30.12,16.97 L27.56,16.54 L26.50,16.50 L24.94,16.75 L23.75,17.10 L22.00,18.12 L21.25,18.73 L20.09,19.94 L18.61,21.79 L17.06,23.38 L15.69,24.60 L15.19,24.88 L12.81,25.57 L12.12,25.62 L11.56,25.56 L9.19,24.89 L8.62,24.59 L7.94,24.07 L6.56,22.82 L6.06,22.53 L5.69,22.46 L5.45,22.54 L5.22,22.75 L5.10,23.06 L5.12,23.56 L5.38,24.06 L5.94,24.69 L7.06,25.73 L8.50,26.78 L10.06,27.63 L10.62,27.85 L13.06,28.12 L14.50,28.12 L16.81,27.87 L17.31,27.71 L18.25,27.12 L20.00,26.39 L20.94,26.19 L21.50,26.23 L22.06,26.43 L22.62,26.81 L23.30,27.40 L23.67,27.88 L23.91,28.44 L23.98,29.06 L23.85,29.75 L23.63,30.25 L22.75,31.56 L21.10,33.56 L20.91,34.25 L20.93,35.12 L21.19,35.81 L21.91,36.81 L24.94,40.38 L25.73,41.81 L26.93,45.38 L27.14,45.63 L27.44,45.77 L27.75,45.74 L28.10,45.49 L28.35,45.12 L28.70,44.12 L28.81,43.00 L28.75,41.56 L28.58,40.94 L27.89,39.19 L27.23,38.25 L26.76,37.44 L25.96,36.44 L25.43,35.31 L25.35,34.62 L25.52,34.06 L25.91,33.31 L26.84,32.25 L29.75,28.50 L30.19,27.62 L30.93,26.44 L31.47,24.94 L31.61,23.88 L31.39,22.88 L30.87,21.75 L30.31,21.12 L29.19,20.48 L28.56,20.20 L27.94,20.12 L27.19,20.31 L26.19,20.98 L25.71,21.50 L25.46,22.06 L25.39,22.50 L25.44,23.00 L25.99,24.25 L27.77,26.56 L28.15,27.31 L28.26,27.88 L28.15,28.44 L27.88,29.00 L26.72,30.56 L25.26,32.25 L24.39,33.44 L24.16,34.00 L24.06,34.88 L24.20,35.75 L25.68,38.31 L25.77,38.62 L25.64,38.85 L25.36,38.76 L24.89,38.18 L24.22,37.71 L23.71,37.02 L23.16,36.49 L22.36,35.38 L22.14,34.75 L22.17,34.38 L22.33,34.00 L23.71,32.25 L24.71,30.62 L24.87,30.25 L25.00,29.31 L24.98,28.00 L24.80,27.38 L24.42,26.81 L23.68,25.98 L22.62,25.25 L22.06,25.07 L21.31,25.00 L20.06,25.05 L19.56,25.14 L17.75,25.99 L16.88,26.21 L16.19,26.50 L16.06,26.49 L16.02,26.39 L16.47,26.01 L16.90,25.26 L17.73,24.55 L18.75,23.50 L21.50,20.38 L22.69,19.33 L24.69,18.13 L25.31,17.95 L26.00,17.88 L28.06,17.88 L29.44,18.01 L31.31,18.50 L32.19,18.62 L33.00,18.49 L34.12,18.10 L35.12,17.86 L35.69,17.56 L36.81,16.50 L37.37,15.56 L37.61,14.81 L37.61,14.19 L37.43,13.56 L36.88,12.50 L36.26,11.69 L36.12,11.38 L36.11,11.13 L36.20,10.95 L36.56,10.87 L38.31,11.86 L39.94,12.25 L41.00,12.74 L42.62,13.32 L43.31,13.77 L43.92,14.31 L44.28,14.81 L44.39,15.31 L44.22,15.66 L43.75,15.97 L43.19,16.13 L41.88,16.22 L41.19,16.38 L40.44,16.72 L39.50,17.35 L39.12,17.75 L38.20,19.19 L37.69,20.50 L36.83,21.88 L35.62,23.10 L34.27,24.16 L33.33,25.31 L33.16,25.75 L33.20,26.19 L33.96,27.25 L34.16,27.94 L34.08,28.50 L33.55,29.31 L33.50,29.67 L33.71,29.91 L34.00,29.97 L34.38,29.88 L34.71,29.65 L35.49,28.56 L35.64,28.06 L35.54,27.62 L34.95,26.75 L34.75,26.31 L34.65,25.88 L34.73,25.50 L34.95,25.21 L36.94,23.44 L37.72,22.56 L38.71,21.25 L39.21,19.75 L40.18,18.38 L40.44,18.12 L40.81,17.93 L41.75,17.70 L43.25,17.48 L44.75,16.94 L45.25,16.59 L45.67,16.12 L45.88,15.69 L45.94,15.12 L45.77,14.44 L45.23,13.69 L44.74,13.17 L43.56,12.27 L43.19,12.05 L42.06,11.66 L41.00,11.13 L39.38,10.77 L38.62,10.50 L37.50,9.70 L35.12,7.41Z M26.22,39.28 L26.47,39.33 L26.63,39.57 L26.64,39.87 L26.48,40.04 L26.25,39.97 L26.08,39.69 L26.09,39.40Z M27.56,21.66 L28.06,21.57 L28.75,21.74 L29.50,22.10 L29.77,22.33 L29.95,22.62 L30.16,23.56 L30.16,25.06 L29.96,25.81 L29.62,26.21 L29.25,26.21 L28.81,25.88 L27.31,24.12 L26.95,23.56 L26.81,22.88 L26.88,22.44 L27.17,21.96Z"/></symbol></svg>
+
+<nav class="nav" aria-label="Secciones">
+  <div class="brand">
+    <svg viewBox="0 0 56 52" aria-hidden="true"><use href="#logo"/></svg>
+    <span class="tag">/fna</span><b>Datos y gobernanza</b>
+  </div>
+  <div class="links" id="links">
+    <button data-p="apertura"><i>/1</i>Apertura</button>
+    <button data-p="datos"><i>/2</i>Qué datos usar</button>
+    <button data-p="permisos"><i>/3</i>Permisos y controles</button>
+    <button data-p="verificacion"><i>/4</i>Verificación</button>
+    <button data-p="cierre"><i>/5</i>Cierre</button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="glow"></div>
+  <div class="city" id="city"></div>
+  <div class="hero-card">
+    <div class="eyebrow">/Capacitación — FNA — Datos, gobernanza y buenas prácticas</div>
+    <h1>Copilot ve lo que tú ves.<span>Tú decides qué le das y qué le crees.</span></h1>
+    <p>Hoy hablamos de tres cosas: qué datos usar y cuáles no, quién puede ver qué en Microsoft 365 y cómo verificar lo que Copilot responde.</p>
+  </div>
+</header>
+
+<main class="stage" id="stage">
+<div class="wrap">
+
+<!-- 1 APERTURA -->
+<section class="panel" id="p-apertura">
+  <div class="sec-eyebrow">/apertura</div>
+  <h2>Tres preguntas para hoy</h2>
+  <p class="lead">En las clases anteriores aprendimos a pedirle cosas a Copilot y a enseñarle cómo trabajamos. Hoy hablamos de lo que le damos y de lo que le creemos.</p>
+  <div class="grid g3">
+    <div class="card top rol">
+      <div class="lab"><span>/datos</span><span>1</span></div>
+      <h3>¿Qué datos le doy?</h3>
+      <p>Antes de pegar o adjuntar algo, decidir qué es seguro usar, qué hay que anonimizar y qué no entra.</p>
+      <div class="miss"><b>Herramienta:</b> el semáforo de datos.</div>
+    </div>
+    <div class="card top ctx">
+      <div class="lab"><span>/permisos</span><span>2</span></div>
+      <h3>¿Quién puede ver qué?</h3>
+      <p>Copilot trabaja con tus permisos. Entender las capas de control ayuda a saber a quién preguntarle qué.</p>
+      <div class="miss"><b>Herramienta:</b> el mapa de capas y la lista de preguntas para TI.</div>
+    </div>
+    <div class="card top ins">
+      <div class="lab"><span>/verificación</span><span>3</span></div>
+      <h3>¿Cómo compruebo lo que me responde?</h3>
+      <p>Copilot redacta con seguridad aunque se equivoque. Quien firma, responde.</p>
+      <div class="miss"><b>Herramienta:</b> las cuatro verificaciones y la nota de trazabilidad.</div>
+    </div>
+  </div>
+
+  <div class="box reveal-box" id="gancho">
+    <div class="hd">Pregunta gancho: ¿qué está mal en este prompt?</div>
+    <div class="prompt-demo">
+      “Resume la situación de Luisa Fernanda Rojas, <span class="flag">C.C. 1.000.000.000 (ficticia)<small>documento de identidad</small></span>, quien presentó <span class="flag">incapacidad por una enfermedad crónica<small>información de salud</small></span>, tiene un <span class="flag">saldo de $48.000.000<small>saldo</small></span> y vive en la <span class="flag">Calle 00 # 00-00<small>dirección</small></span>.”
+    </div>
+    <div class="out"><b>Ninguno de esos datos hace falta para pedir un resumen.</b> Hoy aprendemos a notarlo en dos segundos y a reemplazarlo por marcadores.</div>
+    <div class="foot"><span>Pídele al grupo que lo adivine antes de mostrar la respuesta.</span><button class="btn dark" id="ganchoBtn">Mostrar qué está mal</button></div>
+  </div>
+  <div class="note"><b>Esta sesión es demostrativa.</b> Todos los datos, nombres y documentos que verás son ficticios.</div>
+</section>
+
+<!-- 2 DATOS -->
+<section class="panel" id="p-datos">
+  <div class="sec-eyebrow">/qué-datos-usar</div>
+  <h2>Antes de pegar un dato, tres preguntas</h2>
+  <p class="lead">Son rápidas y se hacen en este orden. Si alguna respuesta es «sí», aplica el semáforo.</p>
+  <div class="grid g3">
+    <div class="card"><div class="q">1</div><h3>¿Es un dato personal?</h3><p>Identifica o permite identificar a una persona: nombre, documento, correo, teléfono, dirección.</p></div>
+    <div class="card"><div class="q">2</div><h3>¿Es sensible, clasificado o reservado?</h3><p>Salud, biometría, creencias, datos de menores, o un documento marcado como clasificado o reservado.</p></div>
+    <div class="card"><div class="q">3</div><h3>¿Lo necesito para esta tarea?</h3><p>Si la tarea se puede hacer sin el dato, se reemplaza por un marcador o se elimina.</p></div>
+  </div>
+
+  <div class="sub">/semáforo — regla práctica de la clase, no texto legal</div>
+  <div class="grid g3" style="margin-top:0">
+    <div class="card top tl">
+      <div class="lab"><span><i class="dot"></i>/verde</span><span>usar</span></div>
+      <h3>Se puede usar</h3>
+      <ul>
+        <li>Información pública y normas.</li>
+        <li>Documentos ya publicados y plantillas.</li>
+        <li>Datos agregados o anonimizados.</li>
+      </ul>
+    </div>
+    <div class="card top tl y">
+      <div class="lab"><span><i class="dot"></i>/amarillo</span><span>con cuidado</span></div>
+      <h3>Solo si es necesario</h3>
+      <ul>
+        <li>Informes, actas y planes de acción internos no sensibles.</li>
+        <li>Datos personales básicos: nombre, cargo, correo institucional.</li>
+        <li>Siempre con la cuenta de trabajo y revisando la etiqueta del documento.</li>
+      </ul>
+    </div>
+    <div class="card top tl r">
+      <div class="lab"><span><i class="dot"></i>/rojo</span><span>no pegar</span></div>
+      <h3>No entra a Copilot</h3>
+      <ul>
+        <li>Datos sensibles: salud, biometría, creencias y similares.</li>
+        <li>Información marcada como clasificada o reservada.</li>
+        <li>Credenciales, claves y datos de menores.</li>
+        <li>Si la tarea lo exige, se consulta antes.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="note"><b>Fuera de la cuenta de trabajo no hay protección.</b> Otra herramienta de IA, el correo personal o un chat de mensajería no tienen el escudo ni los controles de tu organización. Lo que está en rojo tampoco sale por ahí.</div>
+
+  <div class="sub">/de dónde viene</div>
+  <div class="box">
+    <table class="resp norm">
+      <thead><tr><th>Norma</th><th>Qué dice, en llano</th><th>En la clase</th></tr></thead>
+      <tbody>
+        <tr><td>Ley 1581 de 2012, arts. 4 a 6</td><td>Principios del tratamiento: legalidad, finalidad, libertad, veracidad, transparencia, seguridad y confidencialidad. Son sensibles los datos que afectan la intimidad o pueden generar discriminación (salud, origen étnico, creencias, biométricos), y su tratamiento está prohibido salvo excepciones.</td><td>Uso los datos solo para su finalidad. Salud y biometría no entran.</td></tr>
+        <tr><td>Ley 1712 de 2014, arts. 6, 18 y 19</td><td>Distingue la información pública, la clasificada (esfera privada o semiprivada) y la reservada (daño a intereses públicos), y cuándo se puede negar el acceso.</td><td>Si el documento está marcado así, consulto antes de usarlo.</td></tr>
+        <tr><td>Circular Externa 002 de 2024 (SIC)</td><td>Instrucciones para datos personales en sistemas de IA: gestión de riesgos, evaluación de impacto de privacidad, privacidad desde el diseño, calidad de los datos y seguridad auditable. Un dato accesible en internet no es por eso público.</td><td>Que esté en internet no me autoriza a pegarlo ni a usarlo.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note"><b>Alcance.</b> La Ley 1581 y la Ley 1712 no regulan expresamente a Copilot. El semáforo es una traducción práctica y prudente de esas normas. Los casos dudosos se llevan a jurídica o al oficial de protección de datos.</div>
+  <div class="src">Fuentes: <a href="https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=49981" target="_blank" rel="noopener">Ley 1581 de 2012</a> · <a href="https://normas.cra.gov.co/gestor/docs/ley_1712_2014.htm" target="_blank" rel="noopener">Ley 1712 de 2014</a> · <a href="https://sedeelectronica.sic.gov.co/sites/default/files/normativa/Circular%20Externa%20No.%20002%20del%2021%20de%20agosto%20de%202024.pdf" target="_blank" rel="noopener">Circular Externa 002 de 2024</a></div>
+
+  <div class="sub">/ejercicio 1 — clasifica cada dato del Documento A</div>
+  <div class="box" id="ex1">
+    <div class="hd">Informe de revisión, caso ficticio RV-2025-0147 · toca cada dato para asignarle un color</div>
+    <div class="doc" id="doc1"></div>
+    <div class="pick"><span><i style="background:var(--verde)"></i>Verde</span><span><i style="background:var(--amar)"></i>Amarillo</span><span><i style="background:var(--rojo)"></i>Rojo</span><span>Cada toque cambia el color; el cuarto lo deja sin marcar.</span></div>
+    <div class="res" id="res1"></div>
+    <div class="foot"><span id="cnt1">0 de 11 datos marcados</span><span><button class="btn" id="rst1">Reiniciar</button> <button class="btn dark" id="chk1">Ver clave</button></span></div>
+  </div>
+
+  <div class="sub">/dónde se usan los prompts de anonimización</div>
+  <p class="lead" style="margin-top:0;max-width:760px">Sirven para <b>preparar un documento antes de usarlo</b>: clasifican sus datos y producen una versión con marcadores como [PERSONA_1]. Esa versión es la que se usa para la tarea real: un resumen, un informe, un agente o una skill. Se pegan en Copilot Chat con la cuenta de trabajo, en modo Work, con el documento adjunto.</p>
+  <div class="flow" style="margin-top:16px">
+    <div class="node"><div class="ic">📄</div><b>Documento original</b><span>con sus datos</span></div><div class="arr">→</div>
+    <div class="node hu"><div class="ic">✂</div><b>Quitar lo rojo a mano</b><span>en Word: buscar y eliminar salud y datos de menores</span><small>antes de adjuntar</small></div><div class="arr">→</div>
+    <div class="node ag"><div class="ic">1</div><b>Prompt 1</b><span>clasifica lo que queda</span></div><div class="arr">→</div>
+    <div class="node ag"><div class="ic">2</div><b>Prompt 2</b><span>reemplaza por marcadores</span></div><div class="arr">→</div>
+    <div class="node"><div class="ic">✅</div><b>Versión anonimizada</b><span>la que usas en la tarea real</span></div>
+  </div>
+  <div class="note"><b>Lo rojo no se le pasa a Copilot, ni siquiera para anonimizarlo.</b> Los datos amarillos (nombres, documentos, correos, saldos) sí se pueden anonimizar con estos prompts usando la cuenta de trabajo. En la demostración, el Documento A se usa sin las líneas rojas (salud y menor), que se eliminaron a mano antes.</div>
+
+  <div class="sub">/preguntas frecuentes</div>
+  <div class="box">
+    <details class="faq">
+      <summary>Si pegué un dato real (por ejemplo, una cédula) en la cuenta de trabajo, ¿ya se filtró?</summary>
+      <div class="ans">No necesariamente. «Filtrado» significa que el dato llegó a alguien que no debía verlo, y eso depende de dónde lo montaste.
+        <ul>
+          <li><b>Por qué no es automático:</b> con la cuenta de trabajo y el escudo de protección de datos empresariales, lo que escribes o adjuntas no se usa para entrenar los modelos base y queda dentro del servicio de la organización. Copilot solo se lo muestra a quien ya tenga permiso.</li>
+          <li><b>Si el archivo quedó compartido de forma amplia:</b> lo puede ver cualquiera con acceso, y Copilot también.</li>
+          <li><b>Si la búsqueda web estaba activa y el número viajó en la consulta:</b> esa consulta sale hacia Bing y no queda cubierta por el acuerdo de procesamiento de datos de la organización.</li>
+          <li><b>Si lo hiciste fuera de la cuenta de trabajo:</b> otra herramienta de IA, correo personal o mensajería. Ahí perdió todas las protecciones.</li>
+          <li><b>Aunque nadie más lo vea,</b> sigue siendo un tratamiento de datos personales: exige finalidad y autorización (Ley 1581, art. 4) y puede incumplir la política interna.</li>
+        </ul>
+        <p style="margin-top:10px"><b>Qué hacer:</b> confirma que usaste la cuenta de trabajo y que el escudo estaba visible, revisa dónde quedó el dato (historial y archivo) y, si el caso era real y dudas, avisa a TI o al oficial de protección de datos. Ellos deciden si es un incidente.</p>
+      </div>
+    </details>
+    <details class="faq">
+      <summary>¿Es sensible la cédula?</summary>
+      <div class="ans">Es un dato personal, pero no aparece entre los datos sensibles del art. 5 de la Ley 1581 (salud, origen étnico, creencias, biométricos, entre otros). En el semáforo de la clase va en amarillo: se usa solo si es necesario y con la cuenta de trabajo.</div>
+    </details>
+    <details class="faq">
+      <summary>¿Puedo anonimizar un documento que tiene datos de salud con estos prompts?</summary>
+      <div class="ans">No. Primero se eliminan a mano esos datos y solo después se corre el Prompt 1 sobre lo que queda. Si la tarea exige trabajar con ellos, se consulta antes a jurídica.</div>
+    </details>
+  </div>
+
+  <div class="sub">/demostración — prompts y skill del bloque</div>
+  <div class="box">
+    <div class="hd">Para clasificar y anonimizar antes de usar un documento</div>
+    <div class="tabs" id="tabs-d"></div>
+    <div id="code-d"></div>
+    <div class="foot"><span id="foot-d">Datos ficticios.</span><button class="btn" id="copy-d">Copiar</button></div>
+  </div>
+</section>
+
+<!-- 3 PERMISOS -->
+<section class="panel" id="p-permisos">
+  <div class="sec-eyebrow">/permisos-y-controles</div>
+  <h2>Copilot ve lo que tú ves</h2>
+  <p class="lead">No abre puertas nuevas: usa los permisos que ya existen. Eso protege, pero también deja a la vista lo que estaba mal compartido.</p>
+
+  <div class="flow">
+    <div class="node"><div class="ic">👤</div><b>Tú</b><span>entras con tu cuenta de trabajo</span></div><div class="arr">→</div>
+    <div class="node"><div class="ic">🔑</div><b>Tus permisos</b><span>lo que ya puedes abrir hoy</span></div><div class="arr">→</div>
+    <div class="node ag"><div class="ic">🔎</div><b>Microsoft Graph</b><span>busca solo dentro de esos permisos</span></div><div class="arr">→</div>
+    <div class="node ag"><div class="ic">🤖</div><b>Copilot responde</b><span>con lo que tú podrías ver</span></div>
+  </div>
+
+  <div class="grid g2">
+    <div class="card top tl">
+      <div class="lab"><span>/a favor</span></div>
+      <h3>Copilot no abre puertas nuevas</h3>
+      <p>Si no puedes abrir un archivo, Copilot tampoco te lo muestra. Respeta permisos, etiquetas de sensibilidad y accesos condicionados.</p>
+    </div>
+    <div class="card top tl y">
+      <div class="lab"><span>/en contra</span></div>
+      <h3>Hace visible lo que estaba mal compartido</h3>
+      <p>Un archivo compartido con «todos» que nadie encontraba aparece con una buena pregunta. A esto se le llama sobrecompartición.</p>
+    </div>
+  </div>
+  <div class="note"><b>Qué pasa con lo que escribes.</b> Con la protección de datos empresariales (el escudo), tus prompts y respuestas no se usan para entrenar los modelos base. El historial de interacciones queda en el servicio de la organización y está disponible para auditoría.</div>
+
+  <div class="sub">/capas de control — cada capa tiene un dueño</div>
+  <div class="flow">
+    <div class="node"><div class="ic">1</div><b>Permisos</b><span>quién entra a qué archivo o sitio</span><small>TI</small></div><div class="arr">→</div>
+    <div class="node de"><div class="ic">2</div><b>Etiquetas y cifrado</b><span>qué tan sensible es el contenido</span><small>Seguridad</small></div><div class="arr">→</div>
+    <div class="node ag"><div class="ic">3</div><b>Prevención de pérdida (DLP)</b><span>qué no puede resumirse ni salir</span><small>Seguridad</small></div><div class="arr">→</div>
+    <div class="node hu"><div class="ic">4</div><b>Auditoría y retención</b><span>qué queda registrado y por cuánto tiempo</span><small>Cumplimiento</small></div>
+  </div>
+
+  <div class="box">
+    <table class="resp">
+      <thead><tr><th>Control</th><th>Qué hace con Copilot</th></tr></thead>
+      <tbody>
+        <tr><td>Permisos y SharePoint Advanced Management</td><td>Limitan lo que cada persona alcanza a ver. Permiten ocultar sitios del descubrimiento de Copilot y revisar accesos demasiado amplios.</td></tr>
+        <tr><td>Etiquetas de sensibilidad y cifrado</td><td>Con permiso de ver pero sin el derecho de extraer, Copilot no resume el contenido cifrado: solo lo referencia con un enlace. Las etiquetas se heredan a lo que Copilot genera a partir de ese contenido.</td></tr>
+        <tr><td>DLP</td><td>Una política puede impedir que Copilot resuma archivos y correos con ciertas etiquetas, y puede bloquear prompts que contengan tipos de información sensible.</td></tr>
+        <tr><td>DSPM for AI</td><td>Muestra qué datos sensibles aparecen en interacciones de IA y evalúa la sobrecompartición.</td></tr>
+        <tr><td>Auditoría, eDiscovery y retención</td><td>Registran la actividad de Copilot. Los textos de prompts y respuestas se recuperan con eDiscovery y la retención puede eliminarlos.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="grid g2">
+    <div class="card top" style="--c:var(--warn)">
+      <div class="lab"><span>/búsqueda-web</span><span>otra puerta</span></div>
+      <h3>La búsqueda web no sigue las mismas reglas</h3>
+      <p>Cuando Copilot busca en la web, genera una consulta sin identificadores de usuario ni de la organización y la envía a Bing. Esa consulta no queda cubierta por el acuerdo de procesamiento de datos de la organización. Quien administra decide si se permite, y tú tienes un control propio de contenido web.</p>
+      <div class="ex">Con búsqueda web activa, no incluyas nombres, documentos ni cifras de casos reales en la pregunta.</div>
+    </div>
+    <div class="card top" style="--c:var(--ctx)">
+      <div class="lab"><span>/límites</span><span>conviene saberlo</span></div>
+      <h3>Lo que los controles no cubren</h3>
+      <ul>
+        <li>La etiqueta de un sitio o equipo no se hereda a cada archivo que contiene.</li>
+        <li>Las etiquetas de reuniones y chats de Teams no las reconoce Copilot.</li>
+        <li>El contenido con Double Key Encryption no es accesible para Copilot.</li>
+        <li>La auditoría registra la actividad; los textos se obtienen por eDiscovery.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="grid g2">
+    <div class="card top" style="--c:var(--ins)">
+      <div class="lab"><span>/cowork</span><span>también queda registrado</span></div>
+      <h3>Cowork bajo los mismos controles</h3>
+      <p>Según la documentación de Microsoft, la auditoría de Cowork incluye cuando se agregan o comparten skills y plugins y las tareas programadas. También aplican la herencia de etiquetas, DLP, retención y eDiscovery. La lista cambia con frecuencia: se confirma con TI.</p>
+    </div>
+    <div class="card top" style="--c:var(--rol)">
+      <div class="lab"><span>/región</span><span>Ley 1581, art. 26</span></div>
+      <h3>La región de procesamiento importa</h3>
+      <p>La ley restringe la transferencia internacional de datos personales a países sin nivel adecuado de protección, con excepciones. Saber en qué región y con qué modelos se procesa la información es una pregunta para TI.</p>
+    </div>
+  </div>
+  <div class="note"><b>Lo documentado como posible no siempre está activo.</b> La pregunta correcta no es «¿Microsoft tiene esto?», sino «¿esto está encendido aquí?».</div>
+  <div class="src">Fuentes: <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-privacy" target="_blank" rel="noopener">Datos, privacidad y seguridad de Copilot</a> · <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/manage-public-web-access" target="_blank" rel="noopener">Búsqueda web</a> · <a href="https://learn.microsoft.com/en-us/purview/ai-m365-copilot-considerations" target="_blank" rel="noopener">Consideraciones de Purview</a> · <a href="https://learn.microsoft.com/en-us/purview/dlp-microsoft365-copilot-location-learn-about" target="_blank" rel="noopener">DLP para Copilot y Cowork</a> · <a href="https://learn.microsoft.com/en-us/purview/dspm-for-ai" target="_blank" rel="noopener">DSPM for AI</a> · <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/configure-secure-governed-data-foundation-microsoft-365-copilot" target="_blank" rel="noopener">Base segura y gobernada</a> · <a href="https://learn.microsoft.com/en-us/purview/ai-m365-copilot" target="_blank" rel="noopener">Purview para Copilot</a></div>
+
+  <div class="sub">/ejercicio 2 — quién ve qué</div>
+  <div class="box" id="ex2">
+    <div class="hd">Cada persona le pide a Copilot «resume lo que sabes de este tema». ¿Qué ocurre con cada archivo?</div>
+    <table class="resp">
+      <thead><tr><th>Archivo ficticio</th><th>Cómo está</th><th>Persona</th><th>¿Qué hace Copilot?</th></tr></thead>
+      <tbody id="qv"></tbody>
+    </table>
+    <div class="res" id="res2"></div>
+    <div class="foot"><span>Responde las cuatro filas y compara con la clave.</span><span><button class="btn" id="rst2">Reiniciar</button> <button class="btn dark" id="chk2">Ver clave</button></span></div>
+  </div>
+
+  <div class="sub">/demostración — prompts del bloque</div>
+  <div class="box">
+    <div class="hd">Para preparar las preguntas a TI y para ver de dónde sale la información</div>
+    <div class="tabs" id="tabs-p"></div>
+    <div id="code-p"></div>
+    <div class="foot"><span id="foot-p">Datos ficticios.</span><button class="btn" id="copy-p">Copiar</button></div>
+  </div>
+</section>
+
+<!-- 4 VERIFICACION -->
+<section class="panel" id="p-verificacion">
+  <div class="sec-eyebrow">/uso-responsable-y-verificación</div>
+  <h2>Copilot redacta bien, por eso es fácil creerle</h2>
+  <p class="lead">Puede citar un artículo que no existe, inventar una cifra o concluir algo que el documento no dice, todo con total seguridad. Quien firma o presenta el trabajo responde por él.</p>
+
+  <div class="sub">/las cuatro verificaciones</div>
+  <div class="grid g4" style="margin-top:0">
+    <div class="card top rol"><div class="lab"><span>/fuente</span><span>1</span></div><h3>Fuente</h3><p>¿De dónde sale cada afirmación?</p><div class="ex">Pide siempre el archivo y la sección.</div></div>
+    <div class="card top ctx"><div class="lab"><span>/cifra</span><span>2</span></div><h3>Cifra</h3><p>¿Coincide con el original?</p><div class="ex">Compara número por número.</div></div>
+    <div class="card top ins"><div class="lab"><span>/norma</span><span>3</span></div><h3>Norma</h3><p>¿Existe ese artículo y dice eso?</p><div class="ex">Contrasta con el texto oficial, no con la memoria.</div></div>
+    <div class="card top" style="--c:var(--warn)"><div class="lab"><span>/conclusión</span><span>4</span></div><h3>Conclusión</h3><p>¿Se desprende de lo anterior?</p><div class="ex">Una conclusión no respaldada es una opinión.</div></div>
+  </div>
+
+  <div class="grid g2">
+    <div class="card top" style="--c:var(--rol)">
+      <div class="lab"><span>/responsabilidad-demostrada</span><span>Decreto 1074 de 2015</span></div>
+      <h3>Dejar evidencia es parte del trabajo</h3>
+      <p>El artículo 2.2.2.25.6.1 del Decreto 1074 de 2015 exige a los responsables poder demostrar, cuando la SIC lo pida, que adoptaron medidas apropiadas y efectivas para cumplir la ley. En la práctica: qué se pidió, qué se usó, qué se verificó y quién lo revisó.</p>
+    </div>
+    <div class="box" style="margin-top:0" id="trz">
+      <div class="hd">Nota de trazabilidad (tres líneas)</div>
+      <div class="trz">
+        <label>Qué se pidió a la IA<input id="t1" placeholder="Ej.: resumir el hallazgo del caso RV-2025-0147"></label>
+        <label>Qué fuentes y datos se usaron<input id="t2" placeholder="Ej.: informe de revisión, versión anonimizada"></label>
+        <label>Qué se verificó y por quién (fecha)<input id="t3" placeholder="Ej.: cifras y fechas; revisó el oficial; 9 de octubre"></label>
+      </div>
+      <div class="foot"><span>Se pega al final del documento que presentas.</span><button class="btn" id="copy-t">Copiar nota</button></div>
+    </div>
+  </div>
+
+  <div class="sub">/ejercicio 3 — verifica esta respuesta sin usar Copilot</div>
+  <div class="box" id="ex3">
+    <div class="hd">Compara la respuesta de Copilot con la fuente y clasifica cada afirmación</div>
+    <p class="srcbox"><b>Fuente ficticia (resumen del informe)</b>En la muestra de 120 solicitudes se encontraron 9 con soportes duplicados (7,5 %). Dos de esos casos tenían saldo superior a $40.000.000. El área responsable respondió el 15 de octubre. No se evaluó el origen de los duplicados.</p>
+    <table class="stmt resp">
+      <thead><tr><th>Respuesta de Copilot</th><th>¿Qué estado tiene?</th></tr></thead>
+      <tbody id="st"></tbody>
+    </table>
+    <div class="res" id="res3"></div>
+    <div class="foot"><span>Revisa fuente, cifra, norma y conclusión.</span><span><button class="btn" id="rst3">Reiniciar</button> <button class="btn dark" id="chk3">Ver clave</button></span></div>
+  </div>
+
+  <div class="sub">/dónde se usa el prompt de verificación</div>
+  <p class="lead" style="margin-top:0;max-width:760px">Se usa <b>después</b> de que Copilot, un compañero o tú escribieron un texto y <b>antes</b> de que salga o se firme: un informe, la respuesta a una solicitud, un resumen para el comité.</p>
+  <div class="flow" style="margin-top:16px">
+    <div class="node"><div class="ic">1</div><b>Chat nuevo</b><span>Copilot Chat, cuenta de trabajo, modo Work, aparte del que generó el texto</span></div><div class="arr">→</div>
+    <div class="node"><div class="ic">2</div><b>Pega y adjunta</b><span>el texto a verificar y los documentos fuente de los que debería salir</span></div><div class="arr">→</div>
+    <div class="node ag"><div class="ic">3</div><b>Prompt 5 o skill</b><span>tabla de afirmaciones y nota de trazabilidad</span></div><div class="arr">→</div>
+    <div class="node hu"><div class="ic">👁</div><b>Revisión humana</b><span>una persona comprueba contra el original</span><small>decide siempre</small></div>
+  </div>
+  <div class="grid g3">
+    <div class="card top" style="--c:var(--warn)">
+      <div class="lab"><span>/límite 1</span></div>
+      <h3>Copilot revisando a Copilot no es independiente</h3>
+      <p>Sirve como primera pasada para encontrar discrepancias rápido. La comprobación final la hace una persona contra el original.</p>
+    </div>
+    <div class="card top" style="--c:var(--ins)">
+      <div class="lab"><span>/límite 2</span></div>
+      <h3>Las normas no se validan con el prompt</h3>
+      <p>El prompt solo marca cuáles hay que contrastar. La confirmación es contra el texto oficial.</p>
+    </div>
+    <div class="card top" style="--c:var(--rol)">
+      <div class="lab"><span>/límite 3</span></div>
+      <h3>Las fuentes también pasan por el semáforo</h3>
+      <p>Si los documentos fuente traen datos personales, adjunta la versión anonimizada.</p>
+    </div>
+  </div>
+
+  <div class="sub">/demostración — prompt y skill del bloque</div>
+  <div class="box">
+    <div class="hd">Para verificar una respuesta contra sus fuentes</div>
+    <div class="tabs" id="tabs-v"></div>
+    <div id="code-v"></div>
+    <div class="foot"><span id="foot-v">Datos ficticios.</span><button class="btn" id="copy-v">Copiar</button></div>
+  </div>
+  <div class="note"><b>Más cuidado cuando el resultado sale de la entidad.</b> Informes a terceros y respuestas a solicitudes se verifican dos veces y se firman solo después de la revisión de una persona.</div>
+</section>
+
+<!-- 5 CIERRE -->
+<section class="panel" id="p-cierre">
+  <div class="sec-eyebrow">/cierre</div>
+  <h2>Diez reglas para llevar</h2>
+  <p class="lead">Marca las que ya practicas. Las que queden sin marcar son tu tarea de la semana.</p>
+  <div class="box deca" id="deca">
+    <div class="bd">
+      <label class="chk"><input type="checkbox"> Antes de pegar, clasifico: verde, amarillo o rojo.</label>
+      <label class="chk"><input type="checkbox"> Lo sensible, clasificado o reservado no entra a Copilot sin consulta.</label>
+      <label class="chk"><input type="checkbox"> Si la tarea no necesita el dato personal, lo reemplazo o lo elimino.</label>
+      <label class="chk"><input type="checkbox"> Copilot ve lo que yo veo: reviso con quién comparto mis archivos.</label>
+      <label class="chk"><input type="checkbox"> Con búsqueda web activa, no incluyo datos de casos reales en la pregunta.</label>
+      <label class="chk"><input type="checkbox"> Nada de lo que está en rojo sale de la cuenta de trabajo.</label>
+      <label class="chk"><input type="checkbox"> Verifico fuente, cifra, norma y conclusión antes de usar una respuesta.</label>
+      <label class="chk"><input type="checkbox"> Dejo una nota de trazabilidad en lo que presento.</label>
+      <label class="chk"><input type="checkbox"> Si dudo, consulto a TI (lo técnico) o a jurídica (la norma).</label>
+      <label class="chk"><input type="checkbox"> Lo que firmo es mío, lo haya escrito yo o la IA.</label>
+    </div>
+    <div class="prog"><span id="decaTxt">0 de 10</span><div class="bar"><i id="decaBar"></i></div></div>
+  </div>
+
+  <div class="sub">/preguntas pendientes — para llevar a quien corresponde</div>
+  <div class="box">
+    <div class="bd" style="padding:16px 18px">
+      <div class="cols2">
+        <div>
+          <h4>Para TI</h4>
+          <ul>
+            <li>¿Hay etiquetas de sensibilidad aplicadas a los documentos delicados?</li>
+            <li>¿Existe una política DLP que cubra Copilot? ¿Desde cuándo?</li>
+            <li>¿Qué política de búsqueda web está definida para Copilot?</li>
+            <li>¿En qué región y con qué modelos se procesa la información?</li>
+            <li>¿Cuándo fue la última revisión de sobrecompartición de los sitios principales?</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Para jurídica</h4>
+          <ul>
+            <li>¿La Ley 1712 de 2014 aplica a la entidad como sujeto obligado y qué documentos están en el índice de información clasificada y reservada?</li>
+            <li>¿Se hizo una evaluación de impacto de privacidad para usar Copilot con datos personales?</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub">/tu hábito desde mañana</div>
+  <div class="box">
+    <div class="habit"><input id="habIn" maxlength="140" placeholder="Escribe una práctica que empiezas mañana"><button class="btn dark" id="habBtn">Fijar mi hábito</button></div>
+    <div class="habit-out" id="habOut"><small>Mi hábito desde mañana</small><span id="habTxt"></span></div>
+  </div>
+
+  <div class="closing">
+    <h3>Tres clases, una misma idea</h3>
+    <p>Aprendimos a usar Copilot, a enseñarle nuestra forma de trabajar y a usarlo con cuidado. A partir de aquí, lo que importa es la práctica.</p>
+  </div>
+
+  <div class="sub">/fuentes</div>
+  <div class="box">
+    <div class="bd" style="padding:16px 18px">
+      <div class="cols2">
+        <div>
+          <h4>Microsoft</h4>
+          <ul>
+            <li><a class="a" href="https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-privacy" target="_blank" rel="noopener">Datos, privacidad y seguridad de Copilot</a></li>
+            <li><a class="a" href="https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture-data-protection-auditing" target="_blank" rel="noopener">Arquitectura de protección de datos y auditoría</a></li>
+            <li><a class="a" href="https://learn.microsoft.com/en-us/microsoft-365/copilot/manage-public-web-access" target="_blank" rel="noopener">Seguridad y privacidad de la búsqueda web</a></li>
+            <li><a class="a" href="https://learn.microsoft.com/en-us/microsoft-365/copilot/configure-secure-governed-data-foundation-microsoft-365-copilot" target="_blank" rel="noopener">Configurar una base segura y gobernada</a></li>
+            <li><a class="a" href="https://learn.microsoft.com/en-us/purview/ai-m365-copilot" target="_blank" rel="noopener">Purview para Copilot</a></li>
+            <li><a class="a" href="https://learn.microsoft.com/en-us/purview/ai-m365-copilot-considerations" target="_blank" rel="noopener">Consideraciones de Purview para Copilot</a></li>
+            <li><a class="a" href="https://learn.microsoft.com/en-us/purview/dlp-microsoft365-copilot-location-learn-about" target="_blank" rel="noopener">DLP para Copilot y Cowork</a></li>
+            <li><a class="a" href="https://learn.microsoft.com/en-us/purview/dspm-for-ai" target="_blank" rel="noopener">DSPM for AI</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Normas colombianas</h4>
+          <ul>
+            <li><a class="a" href="https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=49981" target="_blank" rel="noopener">Ley 1581 de 2012</a></li>
+            <li><a class="a" href="https://sedeelectronica.sic.gov.co/sites/default/files/normativa/Circular%20Externa%20No.%20002%20del%2021%20de%20agosto%20de%202024.pdf" target="_blank" rel="noopener">Circular Externa 002 de 2024 de la SIC</a></li>
+            <li><a class="a" href="https://normas.cra.gov.co/gestor/docs/ley_1712_2014.htm" target="_blank" rel="noopener">Ley 1712 de 2014</a></li>
+            <li><a class="a" href="https://gecti.uniandes.edu.co/el-principio-de-responsabilidad-demostrada-su-desarrollo-en-la-superintendencia-de-industria-y-comercio/" target="_blank" rel="noopener">Responsabilidad demostrada (Decreto 1074 de 2015, art. 2.2.2.25.6.1)</a></li>
+            <li><a class="a" href="https://normograma.mintic.gov.co/mintic/compilacion/docs/CONPES_DNP_4144_2025.htm" target="_blank" rel="noopener">CONPES 4144 de 2025 (Política Nacional de IA)</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="pager">
+  <button class="btn" id="prev">← Anterior</button>
+  <button class="btn" id="next">Siguiente →</button>
+</div>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <svg viewBox="0 0 56 52" aria-hidden="true"><use href="#logo"/></svg>
+    <p><b>Next Leap</b> · Fondo Nacional del Ahorro (FNA)<br>
+    Datos, gobernanza y buenas prácticas con Microsoft 365 Copilot<br>
+    <code>5 secciones / 2 horas · demostrativa, datos ficticios · teclas ← →</code></p>
+  </div>
+</footer>
+
+<script>
+/* ---------- Ciudad del hero ---------- */
+(function(){
+  const c=document.getElementById('city'); if(!c) return;
+  let s=7; const r=()=>{s=(s*9301+49297)%233280;return s/233280};
+  const W=window.innerWidth||1200; let x=-20, html='';
+  while(x<W+40){
+    const w=34+r()*70, h=60+r()*230;
+    html+='<span style="left:'+x+'px;width:'+w+'px;height:'+h+'px"></span>';
+    const n=Math.floor(w*h/1300);
+    for(let i=0;i<n;i++){
+      html+='<em style="left:'+(x+4+r()*(w-10))+'px;bottom:'+(6+r()*(h-12))+'px;opacity:'+(.35+r()*.65)+'"></em>';
+    }
+    x+=w*(.55+r()*.5);
+  }
+  c.innerHTML=html;
+})();
+
+/* ---------- Navegación entre secciones ---------- */
+const order=['apertura','datos','permisos','verificacion','cierre'];
+function show(id,scroll){
+  if(!order.includes(id)) id='apertura';
+  document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.id==='p-'+id));
+  document.querySelectorAll('#links button').forEach(b=>b.classList.toggle('on',b.dataset.p===id));
+  const i=order.indexOf(id);
+  document.getElementById('prev').style.visibility=i===0?'hidden':'visible';
+  document.getElementById('next').style.visibility=i===order.length-1?'hidden':'visible';
+  if(location.hash!=='#'+id) history.replaceState(null,'','#'+id);
+  const act=document.querySelector('#links button.on'); if(act&&act.scrollIntoView) act.scrollIntoView({inline:'center',block:'nearest'});
+  if(scroll) document.getElementById('stage').scrollIntoView({behavior:'smooth',block:'start'});
+}
+document.querySelectorAll('#links button').forEach(b=>b.addEventListener('click',()=>show(b.dataset.p,true)));
+const go=d=>{const i=order.indexOf(location.hash.slice(1)||'apertura');const n=order[Math.min(order.length-1,Math.max(0,i+d))];show(n,true)};
+document.getElementById('prev').addEventListener('click',()=>go(-1));
+document.getElementById('next').addEventListener('click',()=>go(1));
+document.addEventListener('keydown',e=>{
+  if(['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)) return;
+  if(e.key==='ArrowRight') go(1); if(e.key==='ArrowLeft') go(-1);
+});
+window.addEventListener('hashchange',()=>show(location.hash.slice(1),false));
+
+/* ---------- Utilidades de prompts ---------- */
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+function rciText(p){return 'Rol\n'+p.rol+'\n\nContexto\n'+p.ctx+'\n\nInstrucción\n'+p.ins}
+function rciHtml(p){
+  if(p.text) return '<div class="code">'+esc(p.text)+'</div>';
+  return '<div class="code"><span class="k r">Rol</span>'+esc(p.rol)+'<span class="k c">Contexto</span>'+esc(p.ctx)+'<span class="k i">Instrucción</span>'+esc(p.ins)+'</div>'+(p.note?'<div class="code-note">'+esc(p.note)+'</div>':'');
+}
+const textOf=p=>p.text?p.text:rciText(p);
+function copyText(t,btn){
+  const done=()=>{const o=btn.textContent;btn.textContent='Copiado';btn.classList.add('ok');setTimeout(()=>{btn.textContent=o;btn.classList.remove('ok')},1400)};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done).catch(()=>fallback(t,done))}else fallback(t,done);
+}
+function fallback(t,done){const a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(e){}a.remove();done()}
+function tabbed(prefix,list,footOf){
+  const tabs=document.getElementById('tabs-'+prefix), out=document.getElementById('code-'+prefix);
+  let cur=0;
+  function draw(){
+    tabs.innerHTML=''; list.forEach((it,i)=>{const b=document.createElement('button');b.textContent=it.label;b.className=i===cur?'on':'';b.onclick=()=>{cur=i;draw()};tabs.appendChild(b)});
+    out.innerHTML=rciHtml(list[cur]);
+    const f=document.getElementById('foot-'+prefix); if(f&&footOf) f.textContent=footOf(list[cur]);
+  }
+  document.getElementById('copy-'+prefix).onclick=function(){copyText(textOf(list[cur]),this)};
+  draw();
+}
+
+/* ---------- Prompts y skills ---------- */
+const PD=[
+ {label:'Prompt 1 · Clasificar',
+  note:'Antes de adjuntar el documento, elimina a mano los datos en rojo (salud, menores). Después adjúntalo o pega su texto y ejecuta el prompt.',
+  rol:'Eres un oficial de protección de datos con 12 años de experiencia en entidades del sector financiero, con una maestría en derecho de las tecnologías de la información. Eres prudente: ante la duda clasificas en el nivel más restrictivo.',
+  ctx:'Voy a trabajar con Copilot sobre un informe de revisión de solicitudes y primero quiero decidir qué datos del documento puedo usar tal cual, cuáles debo anonimizar y cuáles no debo usar. Te adjunto un fragmento ficticio (Documento A), al que ya le quité a mano los datos de salud y de menores. Aplico un semáforo propio: verde (información pública o anonimizada), amarillo (interna no sensible, datos personales básicos) y rojo (datos sensibles según la Ley 1581 de 2012, arts. 5 y 6; información clasificada o reservada según la Ley 1712 de 2014, arts. 18 y 19; credenciales; datos de menores).',
+  ins:'1. Lee el documento y lista cada dato que identifique a una persona o sea delicado, en una tabla con cuatro columnas: dato, tipo de dato, color y razón en una frase.\n2. Marca con una "S" los que sean sensibles. Si encuentras alguno que se me haya pasado, detente y avísame antes de continuar.\n3. Indica qué datos puedo conservar, cuáles debo reemplazar por un marcador y cuáles debo eliminar porque no hacen falta para mi tarea (resumir el hallazgo).\n4. Cierra con un máximo de dos dudas que yo debería consultar con jurídica. No inventes datos ni completes los que falten.'},
+ {label:'Prompt 2 · Anonimizar',
+  note:'Úsalo en la misma conversación del Prompt 1. El resultado es la versión que usas para la tarea real (resumen, informe, agente o skill).',
+  rol:'Eres un analista de control con 8 años de experiencia en revisión documental, formado como contador público con especialización en auditoría. Eres meticuloso y no cambias el sentido de lo que redactas.',
+  ctx:'Tengo el Documento A y la tabla de clasificación del paso anterior. Quiero una versión que pueda usar para pedirle a Copilot un resumen del hallazgo sin exponer datos personales ni sensibles. Necesito que los marcadores sean consistentes para poder reconstruir el caso internamente.',
+  ins:'1. Reemplaza cada nombre por un marcador numerado ([PERSONA_1], [PERSONA_2]) y cada número de identificación, teléfono, correo personal y dirección por [DATO_PERSONAL].\n2. Elimina por completo la información de salud y cualquier dato que no sea necesario para entender el hallazgo.\n3. Conserva cifras y fechas que sean necesarias para el análisis y que no identifiquen a nadie.\n4. Entrega el texto resultante y, debajo, una lista de qué reemplazaste y qué eliminaste. No agregues información nueva.'},
+ {label:'Skill · revision-previa-de-datos',path:'skills/revision-previa-de-datos/SKILL.md',
+  text:`---
+name: revision-previa-de-datos
+description: Revisa un texto o documento antes de usarlo con IA, clasifica sus datos en verde, amarillo o rojo y propone una versión anonimizada. Úsala cuando vaya a pegar o adjuntar información que pueda contener datos personales, sensibles, clasificados o reservados.
+---
+
+# Rol
+Eres un oficial de protección de datos con 12 años de experiencia en entidades del sector financiero y una maestría en derecho de las tecnologías de la información. Eres prudente: ante la duda clasificas en el nivel más restrictivo.
+
+# Contexto
+Quien te consulta trabaja con documentos que pueden incluir datos personales. Aplica este semáforo:
+- Verde: información pública, normas, plantillas, datos agregados o anonimizados.
+- Amarillo: información interna no sensible y datos personales básicos (nombre, cargo, correo institucional).
+- Rojo: datos sensibles (salud, biometría, creencias y similares), información clasificada o reservada, credenciales y claves, datos de menores.
+Las bases son la Ley 1581 de 2012 (arts. 5 y 6) y la Ley 1712 de 2014 (arts. 6, 18 y 19). El semáforo es una regla práctica de la organización, no un concepto jurídico.
+
+# Instrucciones
+1. Pregunta cuál es la tarea que se quiere hacer con el documento. Si no la dice, no continúes.
+2. Lista cada dato personal o delicado en una tabla: dato, tipo, color y razón en una frase.
+3. Marca los datos sensibles y los que parezcan clasificados o reservados.
+4. Indica cuáles se conservan, cuáles se reemplazan por marcadores numerados y cuáles se eliminan por no ser necesarios para la tarea.
+5. Entrega la versión anonimizada y la lista de cambios.
+6. Cierra con máximo dos dudas para jurídica. No inventes ni completes datos. Si algo está en rojo y la tarea lo exige, detente y pide confirmación.`}
+];
+tabbed('d',PD,it=>it.path?'Carpeta: '+it.path:'Datos ficticios. Ajusta los nombres de archivos a los tuyos.');
+
+const PP=[
+ {label:'Prompt 3 · Preguntas para TI',
+  note:'Úsalo antes de reunirte con TI. Copilot no sabe qué está activo en tu entidad: solo te ayuda a preguntar.',
+  rol:'Eres una consultora de gobierno de datos en Microsoft 365 con 10 años de experiencia, ingeniera de sistemas con maestría en seguridad de la información. Hablas claro y evitas la jerga técnica con personas que no son de TI.',
+  ctx:'Soy una profesional de control que usa Copilot en tareas diarias. No administro la plataforma, pero quiero saber qué está activo en mi entidad antes de confiar en Copilot para documentos delicados. Las áreas que conocen la respuesta son TI y jurídica. Quiero llegar a la reunión con preguntas concretas, no con dudas generales.',
+  ins:'1. Prepara una lista de 10 preguntas para TI, agrupadas en cuatro temas: permisos y sobrecompartición, etiquetas de sensibilidad, políticas DLP y auditoría, y búsqueda web y región de procesamiento.\n2. Redacta cada pregunta de modo que se pueda responder con sí, no o una fecha, y añade una línea con "por qué importa".\n3. Marca con una estrella las tres preguntas más importantes.\n4. Termina con dos preguntas que corresponden a jurídica y no a TI. No des por hecho que una función está activa.'},
+ {label:'Prompt 4 · De dónde sale',
+  note:'Ejecútalo con una cuenta que tenga acceso a los archivos ficticios y luego con una que no lo tenga.',
+  rol:'Eres un analista de control con 8 años de experiencia, contador público con especialización en auditoría. Eres escéptico y no aceptas afirmaciones sin sustento.',
+  ctx:'En mi espacio de trabajo hay documentos ficticios sobre el plan de mejora PM-014. Quiero ver si Copilot encuentra solo lo que mi cuenta puede abrir y si es capaz de decir de dónde tomó cada dato.',
+  ins:'1. Busca en mis archivos y correos información sobre el plan de mejora PM-014.\n2. Resume en cinco líneas el estado del plan.\n3. Debajo, lista cada archivo o correo que usaste, con su nombre y su ubicación.\n4. Si no encuentras información, dilo en lugar de suponer.'}
+];
+tabbed('p',PP,()=>'Datos ficticios.');
+
+const PV=[
+ {label:'Prompt 5 · Verificar',
+  note:'Pega la respuesta a verificar y adjunta el documento fuente en la misma conversación.',
+  rol:'Eres un auditor interno con 15 años de experiencia, contador público con especialización en revisoría fiscal. Tienes un sesgo escéptico: asumes que una afirmación no está respaldada hasta que ves la evidencia.',
+  ctx:'Tengo una respuesta redactada por Copilot sobre un caso ficticio y el documento fuente del que debería salir. Voy a usarla en un informe, por lo que necesito saber qué está respaldado, qué no y qué debo corregir.',
+  ins:'1. Divide la respuesta en afirmaciones individuales y numéralas.\n2. Para cada una, indica si está respaldada por el documento fuente, no respaldada o no verificable con lo que tengo, y cita el pasaje que lo demuestra.\n3. Revisa por separado las cifras y las referencias normativas. Para las normas, no confíes en tu memoria: indica que deben contrastarse con el texto oficial y señala cuáles lo requieren.\n4. Evalúa si la conclusión final se desprende de las afirmaciones respaldadas.\n5. Entrega una tabla con la afirmación, el estado y la corrección sugerida, y debajo la nota de trazabilidad de tres líneas.'},
+ {label:'Skill · verificacion-de-respuestas',path:'skills/verificacion-de-respuestas/SKILL.md',
+  text:`---
+name: verificacion-de-respuestas
+description: Verifica una respuesta o un borrador generado por IA contra los documentos fuente, revisa cifras y referencias normativas y genera una nota de trazabilidad. Úsala antes de incluir texto generado por IA en un informe, respuesta o comunicación.
+---
+
+# Rol
+Eres un auditor interno con 15 años de experiencia y formación en revisoría fiscal. Tienes un sesgo escéptico: una afirmación no está respaldada hasta que ves la evidencia.
+
+# Contexto
+Quien te consulta va a usar un texto generado por IA en un documento que firmará o presentará. Necesita saber qué está respaldado y qué no. Trabajas con los documentos fuente que te entregue; si no te los entrega, lo dices.
+
+# Instrucciones
+1. Pide el texto a verificar y los documentos fuente. Si faltan las fuentes, señala qué afirmaciones quedan como "no verificables".
+2. Divide el texto en afirmaciones numeradas.
+3. Clasifica cada una como respaldada, no respaldada o no verificable, y cita el pasaje que la sustenta.
+4. Revisa cifras: compara cada una con la fuente y señala diferencias.
+5. Revisa referencias normativas: no las confirmes de memoria; indica cuáles deben contrastarse con el texto oficial.
+6. Evalúa si la conclusión se desprende de lo respaldado.
+7. Entrega una tabla (afirmación, estado, corrección sugerida) y una nota de trazabilidad con tres líneas: qué se pidió a la IA, qué fuentes se usaron y qué se verificó.
+8. No corrijas el texto sin que lo pidan; propón la corrección y espera confirmación.`}
+];
+tabbed('v',PV,it=>it.path?'Carpeta: '+it.path:'Datos ficticios.');
+
+/* ---------- Gancho ---------- */
+document.getElementById('ganchoBtn').addEventListener('click',function(){
+  const b=document.getElementById('gancho'); const on=b.classList.toggle('reveal');
+  this.textContent=on?'Ocultar':'Mostrar qué está mal';
+});
+
+/* ---------- Ejercicio 1: clasificar datos ---------- */
+const T=[
+ {t:'Luisa Fernanda Rojas Medina',k:'y',a:'reemplazar por [PERSONA_1]'},
+ {t:'C.C. 1.000.000.000',k:'y',a:'reemplazar por [DATO_PERSONAL]'},
+ {t:'luisa.rojas@correo-ejemplo.test',k:'y',a:'eliminar: no hace falta'},
+ {t:'300 000 0000',k:'y',a:'eliminar: no hace falta'},
+ {t:'una incapacidad médica por una enfermedad crónica',k:'r',a:'sensible (salud): eliminar'},
+ {t:'la Calle 00 # 00-00, Ciudad Ejemplo',k:'y',a:'eliminar: no hace falta'},
+ {t:'obligación No. 0000-00',k:'y',a:'reemplazar por [DATO_PERSONAL]'},
+ {t:'saldo de $48.000.000',k:'y',a:'conservar solo si el análisis lo exige'},
+ {t:'el soporte de ingresos fue cargado dos veces con fechas distintas',k:'g',a:'conservar: es el hallazgo'},
+ {t:'Camilo A. Peña',k:'y',a:'reemplazar por [PERSONA_2]'},
+ {t:'La hija de la solicitante, de 9 años,',k:'r',a:'dato de menor: eliminar'}
+];
+const NAME={g:'Verde',y:'Amarillo',r:'Rojo'}, NEXT={'':'g',g:'y',y:'r',r:''};
+const segs=[
+ 'La solicitante ',0,' (',1,', ficticia; correo personal ',2,'; teléfono ',3,') presentó ',4,' en el trámite de su solicitud. Reside en ',5,'. Su ',6,' tiene un ',7,' al corte del 30 de septiembre. Se detectó que ',8,'. La revisión fue realizada por ',9,' (analista), quien recomienda solicitar aclaración en 10 días hábiles. ',10,' figura como beneficiaria.'
+];
+const doc1=document.getElementById('doc1');
+doc1.innerHTML=segs.map(s=>typeof s==='number'
+  ? '<button class="tok" data-i="'+s+'" data-s="">'+esc(T[s].t)+'</button>'
+  : esc(s)).join('');
+const ex1=document.getElementById('ex1');
+function cnt1(){
+  const n=[...doc1.querySelectorAll('.tok')].filter(b=>b.dataset.s).length;
+  document.getElementById('cnt1').textContent=n+' de '+T.length+' datos marcados';
+}
+doc1.addEventListener('click',e=>{
+  const b=e.target.closest('.tok'); if(!b) return;
+  ex1.classList.remove('checked'); doc1.querySelectorAll('.tok').forEach(x=>x.classList.remove('ok','no'));
+  b.dataset.s=NEXT[b.dataset.s||'']; cnt1();
+});
+document.getElementById('chk1').addEventListener('click',()=>{
+  let ok=0;
+  doc1.querySelectorAll('.tok').forEach(b=>{
+    const d=T[+b.dataset.i]; const good=b.dataset.s===d.k;
+    if(good) ok++;
+    b.classList.toggle('ok',good); b.classList.toggle('no',!good);
+  });
+  ex1.classList.add('checked');
+  const COL={g:'var(--verde)',y:'var(--amar)',r:'var(--rojo)'};
+  const list=T.map((d,i)=>{const b=doc1.querySelector('.tok[data-i="'+i+'"]');const good=b.dataset.s===d.k;
+    return '<li><span style="color:'+(good?'var(--verde)':'var(--rojo)')+'">'+(good?'✓':'✗')+'</span> <i style="display:inline-block;width:9px;height:9px;border-radius:50%;background:'+COL[d.k]+';margin:0 6px 0 4px"></i><b>'+NAME[d.k]+'</b> · '+esc(d.t)+' <span style="color:var(--ink45)">→ '+esc(d.a)+'</span></li>'}).join('');
+  document.getElementById('res1').innerHTML='<b>Acertaste '+ok+' de '+T.length+'.</b> Una vez anonimizado, lo que queda es el hallazgo: el soporte cargado dos veces. Ese es el texto que sí le pasas a Copilot.<ul class="keylist">'+list+'</ul>';
+});
+document.getElementById('rst1').addEventListener('click',()=>{
+  ex1.classList.remove('checked');
+  doc1.querySelectorAll('.tok').forEach(b=>{b.dataset.s='';b.classList.remove('ok','no')}); cnt1();
+});
+
+/* ---------- Ejercicio 2: quién ve qué ---------- */
+const QV=[
+ {f:'Acta de comité 12',c:'Compartida con «todos» en la organización',p:'Ana (otra área, sin relación con el tema)',k:'usa',e:'Lo usa. Faltó revisar el permiso tan amplio: es sobrecompartición.'},
+ {f:'Papel de trabajo PT-3',c:'Compartido solo con tres personas',p:'Luis (no es una de las tres)',k:'no',e:'No lo ve. El control de permisos funcionó.'},
+ {f:'Base de casos con datos personales',c:'Etiqueta «Confidencial» con cifrado: se puede ver, pero no extraer',p:'Ana',k:'ref',e:'Solo lo referencia con un enlace: tiene permiso de ver, no de extraer. El control funcionó.'},
+ {f:'Informe de gestión publicado',c:'Público, sin etiqueta',p:'Luis',k:'usa',e:'Lo usa. Está bien: es información pública.'}
+];
+const OPT=[['','Elige…'],['usa','Lo usa y lo resume'],['ref','Solo lo referencia con enlace'],['no','No lo ve']];
+const qv=document.getElementById('qv');
+qv.innerHTML=QV.map((q,i)=>'<tr><td>'+esc(q.f)+'</td><td>'+esc(q.c)+'</td><td>'+esc(q.p)+'</td><td class="r1"><select class="sel" data-i="'+i+'">'+OPT.map(o=>'<option value="'+o[0]+'">'+o[1]+'</option>').join('')+'</select><div class="kx" id="kx2-'+i+'"></div></td></tr>').join('');
+const ex2=document.getElementById('ex2');
+qv.addEventListener('change',()=>ex2.classList.remove('checked'));
+document.getElementById('chk2').addEventListener('click',()=>{
+  let ok=0;
+  qv.querySelectorAll('select').forEach(s=>{
+    const q=QV[+s.dataset.i], good=s.value===q.k; if(good) ok++;
+    const kx=document.getElementById('kx2-'+s.dataset.i);
+    kx.className='kx '+(good?'ok':'no'); kx.innerHTML=(good?'✓ ':'✗ ')+esc(q.e);
+  });
+  ex2.classList.add('checked');
+  document.getElementById('res2').innerHTML='<b>Acertaste '+ok+' de '+QV.length+'.</b> El único caso que exige actuar es el primero: Copilot funcionó bien, el problema era el permiso.';
+});
+document.getElementById('rst2').addEventListener('click',()=>{ex2.classList.remove('checked');qv.querySelectorAll('select').forEach(s=>s.value='')});
+
+/* ---------- Ejercicio 3: verificar la respuesta ---------- */
+const ST=[
+ {s:'Se revisaron 120 solicitudes y 9 presentaron soportes duplicados, lo que equivale al 7,5 %.',k:'ok',e:'Respaldada: coincide con la fuente (120, 9 y 7,5 %).'},
+ {s:'Cuatro de esos casos tenían saldo superior a $40.000.000.',k:'no',e:'No respaldada: la fuente dice dos casos, no cuatro.'},
+ {s:'Según el artículo 12 de la Ley 1581 de 2012, la entidad debe eliminar de inmediato los soportes duplicados.',k:'nv',e:'No verificable con lo que tengo: la norma no aparece en la fuente y no se confirma de memoria. Se contrasta con el texto oficial o se elimina.'},
+ {s:'El área responsable respondió el 15 de octubre.',k:'ok',e:'Respaldada: coincide con la fuente.'},
+ {s:'Por tanto, el origen de los duplicados es un error del sistema de carga y debe corregirse.',k:'no',e:'No respaldada: la conclusión no se desprende. La fuente dice que no se evaluó el origen de los duplicados.'}
+];
+const OP3=[['','Elige…'],['ok','Respaldada'],['no','No respaldada'],['nv','No verificable']];
+const st=document.getElementById('st');
+st.innerHTML=ST.map((x,i)=>'<tr><td><b>'+(i+1)+'</b>'+esc(x.s)+'</td><td class="r1"><select class="sel" data-i="'+i+'">'+OP3.map(o=>'<option value="'+o[0]+'">'+o[1]+'</option>').join('')+'</select><div class="kx" id="kx3-'+i+'"></div></td></tr>').join('');
+const ex3=document.getElementById('ex3');
+st.addEventListener('change',()=>ex3.classList.remove('checked'));
+document.getElementById('chk3').addEventListener('click',()=>{
+  let ok=0;
+  st.querySelectorAll('select').forEach(s=>{
+    const x=ST[+s.dataset.i], good=s.value===x.k; if(good) ok++;
+    const kx=document.getElementById('kx3-'+s.dataset.i);
+    kx.className='kx '+(good?'ok':'no'); kx.innerHTML=(good?'✓ ':'✗ ')+esc(x.e);
+  });
+  ex3.classList.add('checked');
+  document.getElementById('res3').innerHTML='<b>Acertaste '+ok+' de '+ST.length+'.</b> El error de la norma es el más fácil de pasar por alto: suena correcto y tiene número de artículo.';
+});
+document.getElementById('rst3').addEventListener('click',()=>{ex3.classList.remove('checked');st.querySelectorAll('select').forEach(s=>s.value='')});
+
+/* ---------- Nota de trazabilidad ---------- */
+document.getElementById('copy-t').addEventListener('click',function(){
+  const v=id=>document.getElementById(id).value.trim()||'______________________';
+  copyText('Qué se pidió a la IA: '+v('t1')+'\nQué fuentes y datos se usaron: '+v('t2')+'\nQué se verificó y por quién (fecha): '+v('t3'),this);
+});
+
+/* ---------- Decálogo y hábito ---------- */
+const dec=[...document.querySelectorAll('#deca input')];
+dec.forEach(i=>i.addEventListener('change',()=>{
+  const n=dec.filter(x=>x.checked).length;
+  document.getElementById('decaTxt').textContent=n+' de '+dec.length;
+  document.getElementById('decaBar').style.width=(n/dec.length*100)+'%';
+}));
+document.getElementById('habBtn').addEventListener('click',()=>{
+  const v=document.getElementById('habIn').value.trim(); const o=document.getElementById('habOut');
+  if(!v){o.style.display='none';return}
+  document.getElementById('habTxt').textContent=v; o.style.display='block';
+});
+
+/* ---------- Inicio ---------- */
+show(location.hash.slice(1)||'apertura',false);
+</script>
+</body>
+</html>
